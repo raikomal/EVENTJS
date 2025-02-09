@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Bubbling</title>
+  <style>
+    .child {
+      background-color: aliceblue;
+      border: 2px solid black;
+      padding: 34px;
+      margin: 34px;
+      cursor: pointer;
+    }
+
+    .childcontainer {  /* Fixed: Added dot (.) for class selector */
+      background-color: beige;
+      margin: 14px;
+      padding: 14px;
+    }
+
+    .container {  /* Fixed: Added dot (.) for class selector */
+      background-color: rgb(220, 220, 89);
+      margin: 14px;
+      padding: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="childcontainer"> <!-- Fixed: Class name lowercase -->
+      <div class="child">I am a child</div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector(".child").addEventListener("contextmenu", (event) => {
+      event.preventDefault(); // Prevents the default right-click menu
+      alert("child was clicked");
+    });
+
+    document.querySelector(".childcontainer").addEventListener("contextmenu", (event) => { // Fixed: class name lowercase
+      event.preventDefault();
+      alert("childContainer was clicked");
+    });
+
+    document.querySelector(".container").addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+      alert("container was clicked");
+    });
+  </script>
+</body>
+</html>
+
