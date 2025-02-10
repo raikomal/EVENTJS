@@ -6,6 +6,7 @@ let prom1 = new Promise((resolve ,reject)=> {
         reject("No rangit initdom number was not supporting you")
     }
     else{
+        
         setTimeout(() => {
             console.log("yes i am done")
             resolve("Harry")
